@@ -1,285 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMJET TECH SOLUTIONS</title>
+    
+    <!-- FAVICON (LOGO IN WEB TITLE DETECTS 'logo.png') -->
+    <link rel="icon" type="image/png" href="logo.png">
 
-<title>LisoChat - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-}
+        body {
+            background: #111;
+            color: #fff;
+        }
 
-.container{
-width:400px;
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
-}
+        /* HEADER */
+        header {
+            background: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.logo{
-text-align:center;
-margin-bottom:20px;
-}
+        /* LOGO */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.logo h1{
-color:#1e88e5;
-font-size:32px;
-}
+        .logo-circle {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #a8cf45;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(168, 207, 69, 0.5);
+        }
 
-.logo p{
-color:#666;
-font-size:14px;
-}
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.input-group{
-margin-bottom:15px;
-}
+        .logo h2 {
+            font-size: 22px;
+            color: #fff;
+        }
 
-.input-group label{
-display:block;
-margin-bottom:5px;
-font-weight:500;
-}
+        /* HAMBURGER MENU */
+        .menu-toggle {
+            width: 35px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
 
-.input-group input{
-width:100%;
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-outline:none;
-}
+        .menu-toggle span {
+            width: 100%;
+            height: 4px;
+            background: #a8cf45;
+            border-radius: 5px;
+        }
 
-.input-group input:focus{
-border-color:#1e88e5;
-}
+        /* MENU */
+        nav {
+            position: absolute;
+            top: 95px;
+            right: 20px;
+            width: 240px;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            display: none;
+        }
 
-.btn{
-width:100%;
-padding:12px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:15px;
-font-weight:600;
-margin-top:10px;
-}
+        nav.active {
+            display: block;
+        }
 
-.login-btn{
-background:#1e88e5;
-color:#fff;
-}
+        nav ul {
+            list-style: none;
+        }
 
-.login-btn:hover{
-background:#1565c0;
-}
+        nav ul li {
+            border-bottom: 1px solid #333;
+        }
 
-.google-btn{
-background:#db4437;
-color:#fff;
-}
+        nav ul li:last-child {
+            border-bottom: none;
+        }
 
-.google-btn:hover{
-background:#c23321;
-}
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            transition: 0.3s;
+        }
 
-.links{
-text-align:center;
-margin-top:15px;
-}
+        nav ul li a:hover {
+            background: #2a2a2a;
+            color: #a8cf45;
+        }
 
-.links a{
-text-decoration:none;
-color:#1e88e5;
-font-size:14px;
-display:block;
-margin-top:8px;
-}
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)),
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600');
+            background-size: cover;
+            background-position: center;
+        }
 
-.message{
-margin-top:10px;
-text-align:center;
-font-size:14px;
-}
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
 
-.success{
-color:green;
-}
+        .hero-content span {
+            color: #a8cf45;
+        }
 
-.error{
-color:red;
-}
+        .hero-content p {
+            max-width: 800px;
+            margin: auto;
+            margin-bottom: 30px;
+            color: #ddd;
+            font-size: 20px;
+        }
 
-@media(max-width:450px){
-.container{
-width:95%;
-}
-}
-</style>
+        .btn {
+            display: inline-block;
+            background: #a8cf45;
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #a8cf45;
+            color: #000;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #a8cf45;
+            box-shadow: 0 0 20px rgba(168, 207, 69, .2);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #a8cf45;
+        }
+
+        .card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-box p {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #333;
+            color: #777;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .logo h2 {
+                font-size: 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-circle {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
+    <header>
+        <div class="logo">
+            <div class="logo-circle">
+                <img src="logo.png" alt="LAMJET TECH SOLUTIONS Logo">
+            </div>
+            <h2>LAMJET TECH SOLUTIONS</h2>
+        </div>
 
-<div class="logo">
-<h1>LisoChat</h1>
-<p>Connect, Chat and Share</p>
-</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-<form id="loginForm">
+        <nav id="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="input-group">
-<label>Email Address</label>
-<input type="email" id="email" placeholder="Enter email" required>
-</div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>LAMJET TECH <span>SOLUTIONS</span></h1>
+            <p>
+                Professional Business Registration Services in Lusaka, Zambia.
+                We assist entrepreneurs, startups and companies with business registration,
+                company incorporation, PACRA services, TPIN registration and compliance support.
+            </p>
+            <a href="#contact" class="btn">Register Your Business</a>
+        </div>
+    </section>
 
-<div class="input-group">
-<label>Password</label>
-<input type="password" id="password" placeholder="Enter password" required>
-</div>
+    <section id="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+        </div>
 
-<button type="submit" class="btn login-btn">
-Login
-</button>
+        <div class="services">
+            <div class="card">
+                <h3>Business Name Registration</h3>
+                <p>Fast registration of business names through relevant authorities.</p>
+            </div>
 
-<button type="button" id="googleLogin" class="btn google-btn">
-Sign In With Google
-</button>
+            <div class="card">
+                <h3>Company Registration</h3>
+                <p>Private company incorporation and legal documentation support.</p>
+            </div>
 
-</form>
+            <div class="card">
+                <h3>PACRA Services</h3>
+                <p>Company updates, amendments and annual returns assistance.</p>
+            </div>
 
-<div class="links">
-<a href="forgot.html">Forgot Password?</a>
-<a href="signup.html">Create Account</a>
-</div>
+            <div class="card">
+                <h3>ZRA TPIN Registration</h3>
+                <p>Taxpayer Identification Number registration services.</p>
+            </div>
 
-<div id="message" class="message"></div>
+            <div class="card">
+                <h3>Business Consultation</h3>
+                <p>Professional guidance for startups and established businesses.</p>
+            </div>
 
-</div>
+            <div class="card">
+                <h3>Document Processing</h3>
+                <p>Preparation and submission of business compliance documents.</p>
+            </div>
 
-<!-- Firebase SDK -->
-<script type="module">
+            <div class="card">
+                <h3>NGO Registration</h3>
+                <p>Registration support for NGOs, associations and clubs.</p>
+            </div>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+            <div class="card">
+                <h3>Trademark Registration</h3>
+                <p>Protection of company names, logos and brands.</p>
+            </div>
 
-import {
-getAuth,
-signInWithEmailAndPassword,
-GoogleAuthProvider,
-signInWithPopup
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+            <div class="card">
+                <h3>Business Licences</h3>
+                <p>Assistance with local authority and sector licences.</p>
+            </div>
+        </div>
+    </section>
 
-/* ==========================
-   FIREBASE CONFIG
-   Replace placeholders
-========================== */
+    <section id="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
 
-const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_PROJECT.appspot.com",
-messagingSenderId: "YOUR_SENDER_ID",
-appId: "YOUR_APP_ID"
-};
+        <div class="about">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200" alt="Business Registration">
+            <div class="about-text">
+                <h3>LAMJET TECH SOLUTIONS</h3>
+                <p>
+                    LAMJET TECH SOLUTIONS is a Lusaka-based company dedicated to helping individuals and organizations register and manage their businesses professionally and efficiently.
+                </p>
+                <br>
+                <p>
+                    Our mission is to simplify the registration process while ensuring compliance with applicable business regulations in Zambia.
+                </p>
+            </div>
+        </div>
+    </section>
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
 
-const messageBox = document.getElementById("message");
+        <div class="contact-box">
+            <h3>LAMJET TECH SOLUTIONS</h3>
+            <p>📍 Lusaka, Zambia</p>
+            <p>📞 +260971132818</p>
+            <p>📧 lamjettechsolutions@gmail.com</p>
+            <br>
+            <a href="tel:+260971132818" class="btn">Call Now</a>
+            <a href="https://wa.me/260971132818" class="btn btn-secondary">WhatsApp Us</a>
+        </div>
+    </section>
 
-/* ==========================
-   EMAIL LOGIN
-========================== */
+    <footer>
+        &copy; 2026 LAMJET TECH SOLUTIONS. All Rights Reserved.
+    </footer>
 
-document.getElementById("loginForm")
-.addEventListener("submit", async(e)=>{
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
 
-e.preventDefault();
+        document.addEventListener("click", function(event) {
+            const menu = document.getElementById("menu");
+            const button = document.querySelector(".menu-toggle");
 
-const email =
-document.getElementById("email").value;
-
-const password =
-document.getElementById("password").value;
-
-try{
-
-await signInWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-messageBox.innerHTML =
-"<span class='success'>Login Successful...</span>";
-
-setTimeout(()=>{
-window.location.href="chat.html";
-},1000);
-
-}catch(error){
-
-messageBox.innerHTML =
-"<span class='error'>"+
-error.message+
-"</span>";
-
-}
-
-});
-
-/* ==========================
-   GOOGLE LOGIN
-========================== */
-
-document.getElementById("googleLogin")
-.addEventListener("click", async()=>{
-
-const provider = new GoogleAuthProvider();
-
-try{
-
-await signInWithPopup(
-auth,
-provider
-);
-
-messageBox.innerHTML =
-"<span class='success'>Google Login Successful...</span>";
-
-setTimeout(()=>{
-window.location.href="chat.html";
-},1000);
-
-}catch(error){
-
-messageBox.innerHTML =
-"<span class='error'>"+
-error.message+
-"</span>";
-
-}
-
-});
-
-</script>
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
 
 </body>
 </html>
