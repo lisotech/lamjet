@@ -35,7 +35,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 12px 5%;
             border-bottom: 1px solid #333;
             position: sticky;
             top: 0;
@@ -50,8 +50,8 @@
         }
 
         .logo-circle {
-            width: 75px;
-            height: 75px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid #a8cf45;
@@ -92,7 +92,7 @@
         /* MENU */
         nav {
             position: absolute;
-            top: 95px;
+            top: 75px;
             right: 20px;
             width: 240px;
             background: #1c1c1c;
@@ -133,12 +133,12 @@
 
         /* HERO */
         .hero {
-            min-height: 90vh;
+            min-height: 55vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             background: linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)),
                         url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600');
             background-size: cover;
@@ -146,8 +146,8 @@
         }
 
         .hero-content h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
+            font-size: 54px;
+            margin-bottom: 15px;
         }
 
         .hero-content span {
@@ -157,9 +157,9 @@
         .hero-content p {
             max-width: 800px;
             margin: auto;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: #ddd;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .btn {
@@ -168,7 +168,7 @@
             color: #000;
             font-weight: 600;
             text-decoration: none;
-            padding: 15px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
             transition: 0.3s;
             margin: 5px;
@@ -366,12 +366,24 @@
 
         /* MOBILE */
         @media(max-width:768px) {
+            header {
+                padding: 10px 5%;
+            }
+
+            nav {
+                top: 65px;
+            }
+
             .logo h2 {
                 font-size: 16px;
             }
 
             .hero-content h1 {
-                font-size: 38px;
+                font-size: 34px;
+            }
+
+            .hero-content p {
+                font-size: 15px;
             }
 
             .about {
@@ -379,8 +391,8 @@
             }
 
             .logo-circle {
-                width: 60px;
-                height: 60px;
+                width: 45px;
+                height: 45px;
             }
 
             .contact-icon-btn {
@@ -452,7 +464,7 @@
                         <div class="service-item">
                             <h4>Annual Returns</h4>
                         </div>
-                      <div class="service-item">
+                        <div class="service-item">
                             <h4>PACRA Printout</h4>
                         </div>
                     </div>
