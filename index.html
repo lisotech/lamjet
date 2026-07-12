@@ -8,7 +8,7 @@
     <!-- FAVICON (LOGO IN WEB TITLE DETECTS 'logo.png') -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -202,35 +202,62 @@
             font-size: 40px;
         }
 
-        /* SERVICES */
-        .services {
+        /* REGISTRAR DASHBOARD STRUCTURE */
+        .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        .card {
+        .registrar-panel {
             background: #1c1c1c;
             border: 1px solid #333;
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        .registrar-panel:hover {
             border-color: #a8cf45;
-            box-shadow: 0 0 20px rgba(168, 207, 69, .2);
+            box-shadow: 0 0 20px rgba(168, 207, 69, .15);
         }
 
-        .card h3 {
-            margin-bottom: 15px;
+        .registrar-header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .registrar-header h3 {
             color: #a8cf45;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        .card p {
-            color: #ccc;
-            line-height: 1.6;
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service-item {
+            background: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #a8cf45;
+        }
+
+        .service-item h4 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .service-item p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         /* ABOUT */
@@ -322,7 +349,7 @@
         <nav id="menu">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Services Dashboard</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
@@ -333,9 +360,8 @@
         <div class="hero-content">
             <h1>LAMJET TECH <span>SOLUTIONS</span></h1>
             <p>
-                Professional Business Registration Services in Lusaka, Zambia.
-                We assist entrepreneurs, startups and companies with business registration,
-                company incorporation, PACRA services, TPIN registration and compliance support.
+                Professional Business Registration and Compliance Services in Lusaka, Zambia. 
+                Get seamlessly registered across all statutory bodies through our streamlined digital gateway.
             </p>
             <a href="#contact" class="btn">Register Your Business</a>
         </div>
@@ -343,53 +369,118 @@
 
     <section id="services">
         <div class="section-title">
-            <h2>Our Services</h2>
+            <h2>Registrar Portal Dashboard</h2>
         </div>
 
-        <div class="services">
-            <div class="card">
-                <h3>Business Name Registration</h3>
-                <p>Fast registration of business names through relevant authorities.</p>
+        <div class="dashboard-grid">
+            <!-- 1. PACRA -->
+            <div class="registrar-panel">
+                <div class="registrar-header">
+                    <h3>PACRA SERVICES</h3>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>Business Name Registration</h4>
+                        <p>Fast registration of unique business names through corporate registry channels.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Company Incorporation</h4>
+                        <p>Private limited company documentation, certificates, and incorporation layout.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Trademark & Brand Registry</h4>
+                        <p>Securing and protecting company names, slogans, and organizational logos.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Corporate Maintenance</h4>
+                        <p>Filing of annual returns, shares modification, and board structure restructuring.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Company Registration</h3>
-                <p>Private company incorporation and legal documentation support.</p>
+            <!-- 2. ZRA -->
+            <div class="registrar-panel">
+                <div class="registrar-header">
+                    <h3>ZAMBIA REVENUE AUTHORITY (ZRA)</h3>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>TPIN Registration</h4>
+                        <p>Instant application setup for your unique Taxpayer Identification Number.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Tax Advisory & Compliance</h4>
+                        <p>Strategic onboarding for turnover tax, corporate tax accounts, and VAT frameworks.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>PACRA Services</h3>
-                <p>Company updates, amendments and annual returns assistance.</p>
+            <!-- 3. NAPSA -->
+            <div class="registrar-panel">
+                <div class="registrar-header">
+                    <h3>NAPSA Compliance</h3>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>Employer Registration</h4>
+                        <p>Establishment registration with the National Pension Scheme Authority.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Social Security Audits</h4>
+                        <p>Document processing and guidance for employee baseline pension mapping.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>ZRA TPIN Registration</h3>
-                <p>Taxpayer Identification Number registration services.</p>
+            <!-- 4. NHIMA -->
+            <div class="registrar-panel">
+                <div class="registrar-header">
+                    <h3>NHIMA Registration</h3>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>National Health Scheme Setup</h4>
+                        <p>Seamless employer setup with National Health Insurance Management Authority.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Staff Onboarding</h4>
+                        <p>Facilitating group health insurance profile submissions for local workers.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Business Consultation</h3>
-                <p>Professional guidance for startups and established businesses.</p>
+            <!-- 5. ZPPA -->
+            <div class="registrar-panel">
+                <div class="registrar-header">
+                    <h3>ZPPA Portal</h3>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>Supplier Registration</h4>
+                        <p>Formal operational registration on the Zambia Public Procurement Authority e-registry.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Government Bidding Readiness</h4>
+                        <p>Compliance evaluation to successfully pitch for government public tenders.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Document Processing</h3>
-                <p>Preparation and submission of business compliance documents.</p>
-            </div>
-
-            <div class="card">
-                <h3>NGO Registration</h3>
-                <p>Registration support for NGOs, associations and clubs.</p>
-            </div>
-
-            <div class="card">
-                <h3>Trademark Registration</h3>
-                <p>Protection of company names, logos and brands.</p>
-            </div>
-
-            <div class="card">
-                <h3>Business Licences</h3>
-                <p>Assistance with local authority and sector licences.</p>
+            <!-- 6. WORKERS COMPENSATION -->
+            <div class="registrar-panel">
+                <div class="registrar-header">
+                    <h3>WORKERS COMPENSATION</h3>
+                </div>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h4>WCFCB Registration</h4>
+                        <p>Employer account initialization via the Workers' Compensation Fund Control Board.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>Risk Assessed Protection</h4>
+                        <p>Procuring legal workspace compliance certifications regarding workplace safety.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -408,7 +499,7 @@
                 </p>
                 <br>
                 <p>
-                    Our mission is to simplify the registration process while ensuring compliance with applicable business regulations in Zambia.
+                    Our mission is to simplify the statutory application landscape while ensuring total adherence to all applicable regulatory boards across Zambia.
                 </p>
             </div>
         </div>
