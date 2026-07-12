@@ -8,7 +8,9 @@
     <!-- FAVICON (LOGO IN WEB TITLE DETECTS 'logo.png') -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <link href="https://fonts.googleapis.com/css2 family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME ICONS FOR CONTACT BUTTONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         * {
@@ -178,16 +180,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            background: #333;
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            background: #a8cf45;
-            color: #000;
-        }
-
         /* SECTIONS */
         section {
             padding: 80px 5%;
@@ -215,6 +207,9 @@
             border-radius: 15px;
             padding: 25px;
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .registrar-panel:hover {
@@ -238,26 +233,31 @@
         .service-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
+            flex-grow: 1;
         }
 
         .service-item {
             background: #252525;
-            padding: 15px;
+            padding: 12px 15px;
             border-radius: 8px;
             border-left: 4px solid #a8cf45;
         }
 
         .service-item h4 {
-            font-size: 16px;
+            font-size: 15px;
             color: #fff;
-            margin-bottom: 5px;
+            font-weight: 500;
         }
 
-        .service-item p {
-            color: #aaa;
-            font-size: 14px;
-            line-height: 1.5;
+        .panel-footer-note {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px dashed #333;
+            font-size: 13px;
+            color: #a8cf45;
+            font-style: italic;
+            text-align: center;
         }
 
         /* ABOUT */
@@ -283,20 +283,76 @@
             color: #ccc;
         }
 
-        /* CONTACT */
+        /* LOCATION SECTION */
+        .location-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .location-container i {
+            font-size: 40px;
+            color: #a8cf45;
+            margin-bottom: 15px;
+        }
+
+        .location-container p {
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* CONTACT SECTION */
         .contact-box {
             background: #1c1c1c;
             border: 1px solid #333;
             border-radius: 15px;
-            padding: 40px;
+            padding: 50px 40px;
             text-align: center;
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        .contact-box p {
-            margin: 15px 0;
-            font-size: 18px;
+        .contact-box h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .contact-icons-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .contact-icon-btn {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #252525;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a8cf45;
+            font-size: 28px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .contact-icon-btn:hover {
+            background: #a8cf45;
+            color: #000;
+            border-color: #a8cf45;
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(168, 207, 69, 0.4);
         }
 
         /* FOOTER */
@@ -326,6 +382,12 @@
                 width: 60px;
                 height: 60px;
             }
+
+            .contact-icon-btn {
+                width: 65px;
+                height: 65px;
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -351,6 +413,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#services">Services Dashboard</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li><a href="#location">Find Us</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
@@ -375,110 +438,120 @@
         <div class="dashboard-grid">
             <!-- 1. PACRA -->
             <div class="registrar-panel">
-                <div class="registrar-header">
-                    <h3>PACRA SERVICES</h3>
+                <div>
+                    <div class="registrar-header">
+                        <h3>PACRA</h3>
+                    </div>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <h4>Business Name Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Company Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Annual Returns</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h4>Business Name Registration</h4>
-                        <p>Fast registration of unique business names through corporate registry channels.</p>
-                    </div>
-                    <div class="service-item">
-                        <h4>Company Incorporation</h4>
-                        <p>Private limited company documentation, certificates, and incorporation layout.</p>
-                    </div>
-                    <div class="service-item">
-                        <h4>Trademark & Brand Registry</h4>
-                        <p>Securing and protecting company names, slogans, and organizational logos.</p>
-                    </div>
-                    <div class="service-item">
-                        <h4>Corporate Maintenance</h4>
-                        <p>Filing of annual returns, shares modification, and board structure restructuring.</p>
-                    </div>
+                <div class="panel-footer-note">
+                    All services found on PACRA.
                 </div>
             </div>
 
-            <!-- 2. ZRA -->
+            <!-- 2. ZAMBIA REVENUE AUTHORITY - ZRA -->
             <div class="registrar-panel">
-                <div class="registrar-header">
-                    <h3>ZAMBIA REVENUE AUTHORITY (ZRA)</h3>
-                </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h4>TPIN Registration</h4>
-                        <p>Instant application setup for your unique Taxpayer Identification Number.</p>
+                <div>
+                    <div class="registrar-header">
+                        <h3>ZAMBIA REVENUE AUTHORITY - ZRA</h3>
                     </div>
-                    <div class="service-item">
-                        <h4>Tax Advisory & Compliance</h4>
-                        <p>Strategic onboarding for turnover tax, corporate tax accounts, and VAT frameworks.</p>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <h4>Tax Payer Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Turnover Tax Returns</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Pay As You Earn Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Pay As You Earn Returns</h4>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- 3. NAPSA -->
             <div class="registrar-panel">
-                <div class="registrar-header">
-                    <h3>NAPSA Compliance</h3>
-                </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h4>Employer Registration</h4>
-                        <p>Establishment registration with the National Pension Scheme Authority.</p>
+                <div>
+                    <div class="registrar-header">
+                        <h3>NAPSA</h3>
                     </div>
-                    <div class="service-item">
-                        <h4>Social Security Audits</h4>
-                        <p>Document processing and guidance for employee baseline pension mapping.</p>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <h4>Company Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Personal Account Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Monthly Returns</h4>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- 4. NHIMA -->
             <div class="registrar-panel">
-                <div class="registrar-header">
-                    <h3>NHIMA Registration</h3>
-                </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h4>National Health Scheme Setup</h4>
-                        <p>Seamless employer setup with National Health Insurance Management Authority.</p>
+                <div>
+                    <div class="registrar-header">
+                        <h3>NHIMA</h3>
                     </div>
-                    <div class="service-item">
-                        <h4>Staff Onboarding</h4>
-                        <p>Facilitating group health insurance profile submissions for local workers.</p>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <h4>Company Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Personal Account Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Monthly Returns</h4>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- 5. ZPPA -->
             <div class="registrar-panel">
-                <div class="registrar-header">
-                    <h3>ZPPA Portal</h3>
-                </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h4>Supplier Registration</h4>
-                        <p>Formal operational registration on the Zambia Public Procurement Authority e-registry.</p>
+                <div>
+                    <div class="registrar-header">
+                        <h3>ZPPA</h3>
                     </div>
-                    <div class="service-item">
-                        <h4>Government Bidding Readiness</h4>
-                        <p>Compliance evaluation to successfully pitch for government public tenders.</p>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <h4>Company Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Renewal</h4>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 6. WORKERS COMPENSATION -->
+            <!-- 6. WORKER'S COMPENSATION -->
             <div class="registrar-panel">
-                <div class="registrar-header">
-                    <h3>WORKERS COMPENSATION</h3>
-                </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h4>WCFCB Registration</h4>
-                        <p>Employer account initialization via the Workers' Compensation Fund Control Board.</p>
+                <div>
+                    <div class="registrar-header">
+                        <h3>WORKER'S COMPENSATION</h3>
                     </div>
-                    <div class="service-item">
-                        <h4>Risk Assessed Protection</h4>
-                        <p>Procuring legal workspace compliance certifications regarding workplace safety.</p>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <h4>Company Registration</h4>
+                        </div>
+                        <div class="service-item">
+                            <h4>Renewal</h4>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -505,19 +578,35 @@
         </div>
     </section>
 
+    <!-- LOCATION SECTION -->
+    <section id="location">
+        <div class="section-title">
+            <h2>Find Us</h2>
+        </div>
+        <div class="location-container">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Lusaka, Zambia</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="section-title">
             <h2>Contact Us</h2>
         </div>
 
         <div class="contact-box">
-            <h3>LAMJET TECH SOLUTIONS</h3>
-            <p>📍 Lusaka, Zambia</p>
-            <p>📞 +260971132818</p>
-            <p>📧 lamjettechsolutions@gmail.com</p>
-            <br>
-            <a href="tel:+260971132818" class="btn">Call Now</a>
-            <a href="https://wa.me/260971132818" class="btn btn-secondary">WhatsApp Us</a>
+            <h3>Get In Touch</h3>
+            <div class="contact-icons-row">
+                <!-- Phone Call Icon Button -->
+                <a href="tel:+260971132818" class="contact-icon-btn" title="Call Us">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <!-- Email Icon Button -->
+                <a href="mailto:lamjettechsolutions@gmail.com" class="contact-icon-btn" title="Email Us">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </section>
 
