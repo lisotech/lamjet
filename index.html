@@ -22,11 +22,13 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
             background: #111;
             color: #fff;
+            overflow-x: hidden;
         }
 
         /* HEADER */
@@ -270,7 +272,7 @@
             backdrop-filter: blur(5px);
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .modal.open {
@@ -283,28 +285,29 @@
             border-radius: 15px;
             width: 100%;
             max-width: 750px;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
-            padding: 35px 30px;
+            padding: 30px 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
+            from { opacity: 0; transform: scale(0.97); }
             to { opacity: 1; transform: scale(1); }
         }
 
         .close-btn {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 12px;
+            right: 18px;
             color: #cbd5e1;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
+            z-index: 10;
         }
 
         .close-btn:hover {
@@ -314,11 +317,12 @@
         .modal-brand-header {
             border-bottom: 3px solid #38bdf8;
             padding-bottom: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            padding-right: 20px;
         }
 
         .modal-brand-header h3 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             text-transform: uppercase;
             color: #ffffff;
@@ -328,10 +332,12 @@
         .modal-contact-line {
             font-size: 13px;
             color: #e2e8f0;
+            line-height: 1.6;
         }
 
         .modal-contact-line span {
             margin-right: 15px;
+            display: inline-block;
         }
 
         .modal-contact-line strong {
@@ -339,7 +345,7 @@
         }
 
         .modal h2 {
-            font-size: 18px;
+            font-size: 17px;
             color: #ffffff;
             margin-bottom: 15px;
             border-left: 4px solid #38bdf8;
@@ -348,14 +354,21 @@
             letter-spacing: 0.5px;
         }
 
-        /* INCORPORATED PRICE TABLE CODES */
+        /* ANDROID OPTIMIZED TABLE CONTAINER */
+        .table-responsive-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Smooth momentum scroll on touch devices */
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
+
         .price-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 25px;
             background-color: rgba(15, 23, 42, 0.6);
-            border-radius: 6px;
-            overflow: hidden;
+            table-layout: fixed; /* Fluid constraints */
         }
 
         .price-table th {
@@ -363,23 +376,24 @@
             color: #cbd5e1;
             font-weight: 600;
             text-align: left;
-            padding: 12px;
-            font-size: 14px;
+            padding: 10px 12px;
+            font-size: 13px;
             border-bottom: 2px solid #334155;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .price-table td {
-            padding: 11px 12px;
+            padding: 10px 12px;
             border-bottom: 1px solid #334155;
-            font-size: 14px;
+            font-size: 13.5px;
+            word-wrap: break-word; /* Prevents overflow pushing table boundaries */
         }
 
         .category-cell {
             font-weight: 600;
             color: #38bdf8;
-            width: 30%;
+            width: 28%;
             vertical-align: middle;
             border-right: 1px solid #334155;
             background-color: rgba(15, 23, 42, 0.2);
@@ -387,7 +401,7 @@
 
         .service-cell {
             color: #e2e8f0;
-            width: 45%;
+            width: 47%;
         }
 
         .amount-cell {
@@ -404,8 +418,8 @@
         .note-box {
             background-color: rgba(30, 41, 59, 0.8);
             border-left: 4px solid #38bdf8;
-            padding: 15px;
-            margin-top: 25px;
+            padding: 12px 15px;
+            margin-top: 20px;
             border-radius: 4px;
         }
 
@@ -414,22 +428,23 @@
             color: #38bdf8;
             margin-bottom: 4px;
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 0.5px;
         }
 
         .note-text {
             color: #cbd5e1;
             margin: 0;
-            font-size: 13px;
+            font-size: 12px;
+            line-height: 1.5;
         }
 
         .closing-message {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
             font-style: italic;
             color: #94a3b8;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         /* ABOUT */
@@ -536,7 +551,7 @@
             color: #777;
         }
 
-        /* MOBILE */
+        /* MOBILE AND ANDROID SPECIFIC OVERRIDES */
         @media(max-width:768px) {
             header {
                 padding: 10px 5%;
@@ -573,13 +588,40 @@
                 font-size: 24px;
             }
 
+            /* Fix layout width limits inside Modal for Android Screens */
             .modal-content {
-                padding: 20px 15px;
+                padding: 20px 12px;
+            }
+
+            .modal-brand-header h3 {
+                font-size: 18px;
             }
             
             .modal-contact-line span {
                 display: block;
-                margin-bottom: 5px;
+                margin-right: 0;
+                margin-bottom: 3px;
+                font-size: 12px;
+            }
+
+            .price-table th {
+                padding: 8px;
+                font-size: 11px;
+            }
+
+            .price-table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .category-cell {
+                width: 25%;
+            }
+            .service-cell {
+                width: 50%;
+            }
+            .amount-cell {
+                width: 25%;
             }
         }
     </style>
@@ -756,7 +798,7 @@
         </div>
     </section>
 
-    <!-- MERGED PRICE LIST MODAL OVERLAY -->
+    <!-- MOBILE SAFELY BOUND PRICE LIST MODAL -->
     <div id="priceModal" class="modal" onclick="closeModalOutside(event)">
         <div class="modal-content">
             <span class="close-btn" onclick="toggleModal(false)">&times;</span>
@@ -772,113 +814,116 @@
 
             <h2>Services & Pricing Guide</h2>
 
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Service Details</th>
-                        <th style="text-align: right;">Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- PACRA -->
-                    <tr>
-                        <td class="category-cell" rowspan="4">PACRA</td>
-                        <td class="service-cell">Business Name</td>
-                        <td class="amount-cell">K1,000</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Partnership</td>
-                        <td class="amount-cell">K2,000</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Limited Company</td>
-                        <td class="amount-cell">K3,500</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Annual Returns Service Fee</td>
-                        <td class="amount-cell">K250</td>
-                    </tr>
+            <!-- Mobile Protected Table Frame -->
+            <div class="table-responsive-wrapper">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Service Details</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- PACRA -->
+                        <tr>
+                            <td class="category-cell" rowspan="4">PACRA</td>
+                            <td class="service-cell">Business Name</td>
+                            <td class="amount-cell">K1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Partnership</td>
+                            <td class="amount-cell">K2,000</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Limited Company</td>
+                            <td class="amount-cell">K3,500</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Annual Returns Service Fee</td>
+                            <td class="amount-cell">K250</td>
+                        </tr>
 
-                    <!-- ZRA -->
-                    <tr>
-                        <td class="category-cell" rowspan="4">ZRA</td>
-                        <td class="service-cell">Registration</td>
-                        <td class="amount-cell">K500</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Monthly Service Fee (TOT)</td>
-                        <td class="amount-cell">K200</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Monthly Service Fee - Pay As You Earn</td>
-                        <td class="amount-cell">K100 / Employee</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Company Registration</td>
-                        <td class="amount-cell">K1,000</td>
-                    </tr>
+                        <!-- ZRA -->
+                        <tr>
+                            <td class="category-cell" rowspan="4">ZRA</td>
+                            <td class="service-cell">Registration</td>
+                            <td class="amount-cell">K500</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Monthly Service Fee (TOT)</td>
+                            <td class="amount-cell">K200</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Monthly Service Fee - PAYE</td>
+                            <td class="amount-cell">K100 / Emp</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Company Registration</td>
+                            <td class="amount-cell">K1,000</td>
+                        </tr>
 
-                    <!-- NAPSA -->
-                    <tr>
-                        <td class="category-cell" rowspan="3">NAPSA</td>
-                        <td class="service-cell">Personal</td>
-                        <td class="amount-cell">K500</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Monthly Service Fee</td>
-                        <td class="amount-cell">K100 / Employee</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Personal Account Upgrade</td>
-                        <td class="amount-cell">K250</td>
-                    </tr>
+                        <!-- NAPSA -->
+                        <tr>
+                            <td class="category-cell" rowspan="3">NAPSA</td>
+                            <td class="service-cell">Personal</td>
+                            <td class="amount-cell">K500</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Monthly Service Fee</td>
+                            <td class="amount-cell">K100 / Emp</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Personal Account Upgrade</td>
+                            <td class="amount-cell">K250</td>
+                        </tr>
 
-                    <!-- ZPPA -->
-                    <tr>
-                        <td class="category-cell" rowspan="2">ZPPA</td>
-                        <td class="service-cell">New Registration</td>
-                        <td class="amount-cell">K900</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Renewal</td>
-                        <td class="amount-cell">K600</td>
-                    </tr>
+                        <!-- ZPPA -->
+                        <tr>
+                            <td class="category-cell" rowspan="2">ZPPA</td>
+                            <td class="service-cell">New Registration</td>
+                            <td class="amount-cell">K900</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Renewal</td>
+                            <td class="amount-cell">K600</td>
+                        </tr>
 
-                    <!-- WORKERS COMPENSATION -->
-                    <tr>
-                        <td class="category-cell" rowspan="2">Workers Compensation</td>
-                        <td class="service-cell">New Registration</td>
-                        <td class="amount-cell">K1,000</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Renewal</td>
-                        <td class="amount-cell">K1,000</td>
-                    </tr>
+                        <!-- WORKERS COMPENSATION -->
+                        <tr>
+                            <td class="category-cell" rowspan="2">Workers Comp</td>
+                            <td class="service-cell">New Registration</td>
+                            <td class="amount-cell">K1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Renewal</td>
+                            <td class="amount-cell">K1,000</td>
+                        </tr>
 
-                    <!-- NHIMA -->
-                    <tr>
-                        <td class="category-cell" rowspan="3">NHIMA</td>
-                        <td class="service-cell">Company Registration</td>
-                        <td class="amount-cell">K1,000</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Personal Registration</td>
-                        <td class="amount-cell">K200</td>
-                    </tr>
-                    <tr>
-                        <td class="service-cell">Monthly Returns</td>
-                        <td class="amount-cell">K50 / Employee</td>
-                    </tr>
+                        <!-- NHIMA -->
+                        <tr>
+                            <td class="category-cell" rowspan="3">NHIMA</td>
+                            <td class="service-cell">Company Reg</td>
+                            <td class="amount-cell">K1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Personal Reg</td>
+                            <td class="amount-cell">K200</td>
+                        </tr>
+                        <tr>
+                            <td class="service-cell">Monthly Returns</td>
+                            <td class="amount-cell">K50 / Emp</td>
+                        </tr>
 
-                    <!-- ONLINE MUSIC DISTRIBUTION -->
-                    <tr>
-                        <td class="category-cell">Online Music Distribution</td>
-                        <td class="service-cell">All Streaming Platforms</td>
-                        <td class="amount-cell">K650</td>
-                    </tr>
-                </tbody>
-            </table>
+                        <!-- ONLINE MUSIC DISTRIBUTION -->
+                        <tr>
+                            <td class="category-cell">Online Music</td>
+                            <td class="service-cell">All Streaming Platforms</td>
+                            <td class="amount-cell">K650</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div class="note-box">
                 <div class="note-title">Important Note</div>
@@ -950,12 +995,12 @@
             document.getElementById("menu").classList.toggle("active");
         }
 
-        // Handle pricing modal display transitions
+        // Toggle pricing modal safe from viewport overflows
         function toggleModal(show) {
             const modal = document.getElementById("priceModal");
             if (show) {
                 modal.classList.add("open");
-                document.body.style.overflow = "hidden"; // Prevent main window scrolling
+                document.body.style.overflow = "hidden";
             } else {
                 modal.classList.remove("open");
                 document.body.style.overflow = "auto";
