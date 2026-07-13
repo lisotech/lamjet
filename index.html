@@ -8,7 +8,7 @@
     <!-- FAVICON (LOGO IN WEB TITLE DETECTS 'logo.png') -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FONT AWESOME ICONS FOR CONTACT BUTTONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -172,12 +172,19 @@
             border-radius: 50px;
             transition: 0.3s;
             margin: 5px;
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
             background: #fff;
             color: #000;
             transform: translateY(-2px);
+        }
+
+        .btn-center-wrapper {
+            text-align: center;
+            margin-top: 50px;
         }
 
         /* SECTIONS */
@@ -199,7 +206,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
         }
 
         .registrar-panel {
@@ -251,21 +257,179 @@
             font-weight: 500;
         }
 
-        /* PRICE BUTTON WRAPPER */
-        .price-action-container {
+        /* MODAL (PRICE LIST POPUP) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1e293b 0%, #111827 50%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 750px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #cbd5e1;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #38bdf8;
+        }
+
+        .modal-brand-header {
+            border-bottom: 3px solid #38bdf8;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .modal-brand-header h3 {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .modal-contact-line {
+            font-size: 13px;
+            color: #e2e8f0;
+        }
+
+        .modal-contact-line span {
+            margin-right: 15px;
+        }
+
+        .modal-contact-line strong {
+            color: #38bdf8;
+        }
+
+        .modal h2 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 15px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* INCORPORATED PRICE TABLE CODES */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .price-table th {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+            border-bottom: 2px solid #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-table td {
+            padding: 11px 12px;
+            border-bottom: 1px solid #334155;
+            font-size: 14px;
+        }
+
+        .category-cell {
+            font-weight: 600;
+            color: #38bdf8;
+            width: 30%;
+            vertical-align: middle;
+            border-right: 1px solid #334155;
+            background-color: rgba(15, 23, 42, 0.2);
+        }
+
+        .service-cell {
+            color: #e2e8f0;
+            width: 45%;
+        }
+
+        .amount-cell {
+            font-weight: 600;
+            color: #ffffff;
+            text-align: right;
+            width: 25%;
+        }
+
+        .price-table tbody tr:nth-child(even) {
+            background-color: rgba(30, 41, 59, 0.3);
+        }
+
+        .note-box {
+            background-color: rgba(30, 41, 59, 0.8);
+            border-left: 4px solid #38bdf8;
+            padding: 15px;
+            margin-top: 25px;
+            border-radius: 4px;
+        }
+
+        .note-title {
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .note-text {
+            color: #cbd5e1;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .closing-message {
             text-align: center;
             margin-top: 30px;
-        }
-
-        .btn-price {
-            background: transparent;
-            color: #a8cf45;
-            border: 2px solid #a8cf45;
-        }
-
-        .btn-price:hover {
-            background: #a8cf45;
-            color: #000;
+            font-style: italic;
+            color: #94a3b8;
+            font-size: 14px;
         }
 
         /* ABOUT */
@@ -407,6 +571,15 @@
                 width: 65px;
                 height: 65px;
                 font-size: 24px;
+            }
+
+            .modal-content {
+                padding: 20px 15px;
+            }
+            
+            .modal-contact-line span {
+                display: block;
+                margin-bottom: 5px;
             }
         }
     </style>
@@ -577,13 +750,146 @@
             </div>
         </div>
 
-        <!-- NEW PRICE LIST PDF BUTTON -->
-        <div class="price-action-container">
-            <a href="LAMJET_TECH_SOLUTIONS_2026.pdf" target="_blank" class="btn btn-price">
-                <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i> View Price List
-            </a>
+        <!-- CENTERED BUTTON FOR PRICE LIST -->
+        <div class="btn-center-wrapper">
+            <button class="btn" onclick="toggleModal(true)">View Price List</button>
         </div>
     </section>
+
+    <!-- MERGED PRICE LIST MODAL OVERLAY -->
+    <div id="priceModal" class="modal" onclick="closeModalOutside(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleModal(false)">&times;</span>
+            
+            <div class="modal-brand-header">
+                <h3>LAMJET TECH SOLUTIONS</h3>
+                <div class="modal-contact-line">
+                    <span><strong>Phone:</strong> +260971132818</span>
+                    <span><strong>Email:</strong> lamjettechsolutions@gmail.com</span>
+                    <span><strong>Location:</strong> Lusaka, Zambia</span>
+                </div>
+            </div>
+
+            <h2>Services & Pricing Guide</h2>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Service Details</th>
+                        <th style="text-align: right;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- PACRA -->
+                    <tr>
+                        <td class="category-cell" rowspan="4">PACRA</td>
+                        <td class="service-cell">Business Name</td>
+                        <td class="amount-cell">K1,000</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Partnership</td>
+                        <td class="amount-cell">K2,000</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Limited Company</td>
+                        <td class="amount-cell">K3,500</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Annual Returns Service Fee</td>
+                        <td class="amount-cell">K250</td>
+                    </tr>
+
+                    <!-- ZRA -->
+                    <tr>
+                        <td class="category-cell" rowspan="4">ZRA</td>
+                        <td class="service-cell">Registration</td>
+                        <td class="amount-cell">K500</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Monthly Service Fee (TOT)</td>
+                        <td class="amount-cell">K200</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Monthly Service Fee - Pay As You Earn</td>
+                        <td class="amount-cell">K100 / Employee</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Company Registration</td>
+                        <td class="amount-cell">K1,000</td>
+                    </tr>
+
+                    <!-- NAPSA -->
+                    <tr>
+                        <td class="category-cell" rowspan="3">NAPSA</td>
+                        <td class="service-cell">Personal</td>
+                        <td class="amount-cell">K500</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Monthly Service Fee</td>
+                        <td class="amount-cell">K100 / Employee</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Personal Account Upgrade</td>
+                        <td class="amount-cell">K250</td>
+                    </tr>
+
+                    <!-- ZPPA -->
+                    <tr>
+                        <td class="category-cell" rowspan="2">ZPPA</td>
+                        <td class="service-cell">New Registration</td>
+                        <td class="amount-cell">K900</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Renewal</td>
+                        <td class="amount-cell">K600</td>
+                    </tr>
+
+                    <!-- WORKERS COMPENSATION -->
+                    <tr>
+                        <td class="category-cell" rowspan="2">Workers Compensation</td>
+                        <td class="service-cell">New Registration</td>
+                        <td class="amount-cell">K1,000</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Renewal</td>
+                        <td class="amount-cell">K1,000</td>
+                    </tr>
+
+                    <!-- NHIMA -->
+                    <tr>
+                        <td class="category-cell" rowspan="3">NHIMA</td>
+                        <td class="service-cell">Company Registration</td>
+                        <td class="amount-cell">K1,000</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Personal Registration</td>
+                        <td class="amount-cell">K200</td>
+                    </tr>
+                    <tr>
+                        <td class="service-cell">Monthly Returns</td>
+                        <td class="amount-cell">K50 / Employee</td>
+                    </tr>
+
+                    <!-- ONLINE MUSIC DISTRIBUTION -->
+                    <tr>
+                        <td class="category-cell">Online Music Distribution</td>
+                        <td class="service-cell">All Streaming Platforms</td>
+                        <td class="amount-cell">K650</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-box">
+                <div class="note-title">Important Note</div>
+                <p class="note-text">The stated amounts include both the official registration fees and all applicable service charges.</p>
+            </div>
+
+            <div class="closing-message">
+                Thank you for reaching out to us. We highly value your business!
+            </div>
+        </div>
+    </div>
 
     <section id="about">
         <div class="section-title">
@@ -625,11 +931,9 @@
         <div class="contact-box">
             <h3>Get In Touch</h3>
             <div class="contact-icons-row">
-                <!-- Phone Call Icon Button -->
                 <a href="tel:+260971132818" class="contact-icon-btn" title="Call Us">
                     <i class="fa-solid fa-phone"></i>
                 </a>
-                <!-- Email Icon Button -->
                 <a href="mailto:lamjettechsolutions@gmail.com" class="contact-icon-btn" title="Email Us">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
@@ -644,6 +948,25 @@
     <script>
         function toggleMenu() {
             document.getElementById("menu").classList.toggle("active");
+        }
+
+        // Handle pricing modal display transitions
+        function toggleModal(show) {
+            const modal = document.getElementById("priceModal");
+            if (show) {
+                modal.classList.add("open");
+                document.body.style.overflow = "hidden"; // Prevent main window scrolling
+            } else {
+                modal.classList.remove("open");
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        function closeModalOutside(event) {
+            const modal = document.getElementById("priceModal");
+            if (event.target === modal) {
+                toggleModal(false);
+            }
         }
 
         document.addEventListener("click", function(event) {
