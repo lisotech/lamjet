@@ -523,7 +523,7 @@
             padding: 50px 40px;
             text-align: center;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
         }
 
         .contact-box h3 {
@@ -536,7 +536,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 35px;
+            gap: 25px;
         }
 
         .contact-icon-btn {
@@ -561,6 +561,105 @@
             border-color: #a8cf45;
             transform: translateY(-5px);
             box-shadow: 0 0 20px rgba(168, 207, 69, 0.4);
+        }
+
+        /* Special Hover for WhatsApp button */
+        .contact-icon-btn.whatsapp-btn:hover {
+            background: #25D366;
+            color: #fff;
+            border-color: #25D366;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* DYNAMIC AUTO SCROLLING CAROUSEL SYSTEM */
+        .carousel-wrapper {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #333;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            background: #000;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* TEXT METADATA OVERLAY */
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 30px 25px 20px 25px;
+            color: #fff;
+            z-index: 3;
+        }
+
+        .slide-caption h4 {
+            color: #a8cf45;
+            font-size: 20px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .slide-caption p {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* CAROUSEL INDICATOR DOTS */
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #a8cf45;
+            transform: scale(1.2);
         }
 
         /* FOOTER */
@@ -603,6 +702,10 @@
                 height: 45px;
             }
 
+            .contact-icons-row {
+                gap: 15px;
+            }
+
             .contact-icon-btn {
                 width: 65px;
                 height: 65px;
@@ -642,6 +745,18 @@
             }
             .amount-cell {
                 width: 25%;
+            }
+
+            .carousel-slides {
+                height: 300px;
+            }
+
+            .slide-caption h4 {
+                font-size: 16px;
+            }
+
+            .slide-caption p {
+                font-size: 12px;
             }
         }
     </style>
@@ -1003,9 +1118,62 @@
                 <a href="tel:+260971132818" class="contact-icon-btn" title="Call Us">
                     <i class="fa-solid fa-phone"></i>
                 </a>
+                <a href="https://wa.me/260971132818" target="_blank" class="contact-icon-btn whatsapp-btn" title="Chat on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
                 <a href="mailto:lamjettechsolutions@gmail.com" class="contact-icon-btn" title="Email Us">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
+            </div>
+        </div>
+
+        <!-- AUTOPLAYING DYNAMIC IMAGE CAROUSEL BELOW CONTACT BOX (4 SLIDES / 5 SECOND AUTOPLAY + MANUAL DOT CONTROLS) -->
+        <div class="carousel-wrapper">
+            <!-- CAROUSEL DATA HOLDER -->
+            <div class="carousel-slides">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <img src="1.jpeg?w=800" alt="Corporate Setup and Analysis">
+                    <div class="slide-caption">
+                        <h4>Strategic Corporate Structuring</h4>
+                        <p>Laying down solid regulatory corporate frameworks across statutory paths.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800" alt="Zambia Revenue Compliance and Management">
+                    <div class="slide-caption">
+                        <h4>Streamlined Tax Clearances</h4>
+                        <p>Handling tax entity processing, calculations and returns processing for modern businesses.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?w=800" alt="Legal Registrations and Licensing">
+                    <div class="slide-caption">
+                        <h4>Rapid Registration Gateway</h4>
+                        <p>Your one-stop digital office interface driving efficient regulatory documentation approvals.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" alt="Business Growth and Consultations">
+                    <div class="slide-caption">
+                        <h4>Professional Business Growth</h4>
+                        <p>Providing expert consultations to keep your enterprise fully compliant and operational.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDICATOR DOT PACKET (MANUAL SELECTION) -->
+            <div class="carousel-dots">
+                <span class="dot active" onclick="setSlide(0)"></span>
+                <span class="dot" onclick="setSlide(1)"></span>
+                <span class="dot" onclick="setSlide(2)"></span>
+                <span class="dot" onclick="setSlide(3)"></span>
             </div>
         </div>
     </section>
@@ -1045,6 +1213,34 @@
                 menu.classList.remove("active");
             }
         });
+
+        /* AUTOMATED SCROLLING SLIDER INTERNALS */
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const autoAdvanceInterval = 5000; // 5 seconds
+        let slideTimer = setInterval(autoAdvanceSlides, autoAdvanceInterval);
+
+        function updateSlideDisplay() {
+            slides.forEach((slide) => slide.classList.remove('active'));
+            dots.forEach((dot) => dot.classList.remove('active'));
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+
+        function autoAdvanceSlides() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            updateSlideDisplay();
+        }
+
+        // Manual override function via indicator dots
+        function setSlide(index) {
+            clearInterval(slideTimer); // Clear auto timeline upon interaction
+            currentSlideIndex = index;
+            updateSlideDisplay();
+            slideTimer = setInterval(autoAdvanceSlides, autoAdvanceInterval); // Restart the 5-second loop cleanly
+        }
     </script>
 
 </body>
