@@ -189,6 +189,27 @@
             margin-top: 50px;
         }
 
+        .btn-dl {
+            background: #38bdf8;
+            color: #000;
+            font-size: 14px;
+            padding: 12px 24px;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-dl:hover {
+            background: #ffffff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
         /* SECTIONS */
         section {
             padding: 80px 5%;
@@ -358,7 +379,7 @@
         .table-responsive-wrapper {
             width: 100%;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* Smooth momentum scroll on touch devices */
+            -webkit-overflow-scrolling: touch;
             margin-bottom: 20px;
             border-radius: 6px;
             border: 1px solid #334155;
@@ -368,7 +389,7 @@
             width: 100%;
             border-collapse: collapse;
             background-color: rgba(15, 23, 42, 0.6);
-            table-layout: fixed; /* Fluid constraints */
+            table-layout: fixed;
         }
 
         .price-table th {
@@ -387,7 +408,7 @@
             padding: 10px 12px;
             border-bottom: 1px solid #334155;
             font-size: 13.5px;
-            word-wrap: break-word; /* Prevents overflow pushing table boundaries */
+            word-wrap: break-word;
         }
 
         .category-cell {
@@ -551,7 +572,7 @@
             color: #777;
         }
 
-        /* MOBILE AND ANDROID SPECIFIC OVERRIDES */
+        /* MOBILE OVERRIDES */
         @media(max-width:768px) {
             header {
                 padding: 10px 5%;
@@ -588,7 +609,6 @@
                 font-size: 24px;
             }
 
-            /* Fix layout width limits inside Modal for Android Screens */
             .modal-content {
                 padding: 20px 12px;
             }
@@ -798,7 +818,7 @@
         </div>
     </section>
 
-    <!-- MOBILE SAFELY BOUND PRICE LIST MODAL -->
+    <!-- MODAL OVERLAY -->
     <div id="priceModal" class="modal" onclick="closeModalOutside(event)">
         <div class="modal-content">
             <span class="close-btn" onclick="toggleModal(false)">&times;</span>
@@ -814,7 +834,6 @@
 
             <h2>Services & Pricing Guide</h2>
 
-            <!-- Mobile Protected Table Frame -->
             <div class="table-responsive-wrapper">
                 <table class="price-table">
                     <thead>
@@ -930,6 +949,11 @@
                 <p class="note-text">The stated amounts include both the official registration fees and all applicable service charges.</p>
             </div>
 
+            <!-- STATIC PDF DOWNLOAD ATTACHMENT LINK -->
+            <a href="LAMJET_TECH_SOLUTIONS_2026.pdf" download="LAMJET_TECH_SOLUTIONS_2026.pdf" class="btn btn-dl">
+                <i class="fa-solid fa-download"></i> Download Price List
+            </a>
+
             <div class="closing-message">
                 Thank you for reaching out to us. We highly value your business!
             </div>
@@ -995,7 +1019,6 @@
             document.getElementById("menu").classList.toggle("active");
         }
 
-        // Toggle pricing modal safe from viewport overflows
         function toggleModal(show) {
             const modal = document.getElementById("priceModal");
             if (show) {
