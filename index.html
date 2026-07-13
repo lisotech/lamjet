@@ -8,7 +8,7 @@
     <!-- FAVICON (LOGO IN WEB TITLE DETECTS 'logo.png') -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FONT AWESOME ICONS FOR CONTACT BUTTONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -199,6 +199,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+            margin-bottom: 40px;
         }
 
         .registrar-panel {
@@ -250,14 +251,21 @@
             font-weight: 500;
         }
 
-        .panel-footer-note {
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px dashed #333;
-            font-size: 13px;
-            color: #a8cf45;
-            font-style: italic;
+        /* PRICE BUTTON WRAPPER */
+        .price-action-container {
             text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn-price {
+            background: transparent;
+            color: #a8cf45;
+            border: 2px solid #a8cf45;
+        }
+
+        .btn-price:hover {
+            background: #a8cf45;
+            color: #000;
         }
 
         /* ABOUT */
@@ -567,6 +575,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- NEW PRICE LIST PDF BUTTON -->
+        <div class="price-action-container">
+            <a href="LAMJET_TECH_SOLUTIONS_2026.pdf" target="_blank" class="btn btn-price">
+                <i class="fa-solid fa-file-pdf" style="margin-right: 8px;"></i> View Price List
+            </a>
         </div>
     </section>
 
